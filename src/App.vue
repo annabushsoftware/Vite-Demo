@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
+
+const serverHello = ref('')
+
+fetch('/api/v1/hello')
+  .then((r) => r.json())
+  .then(({ message }) => {
+    serverHello.value = message
+  })
 </script>
 
 <template>
@@ -14,6 +23,8 @@ import HelloWorld from './components/HelloWorld.vue'
   <HelloWorld msg="Vite + Vue" />
 
   <div class="text-3xl font-bold underline">Hello tailwind</div>
+
+  <div>{{ serverHello }}</div>
 </template>
 
 <style scoped>
