@@ -16,3 +16,12 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
    1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+
+## Local DB Setup
+
+1. [Download Postgres](https://www.postgresql.org/download/)
+2. Use your preferred method to get into the Postgres terminal:
+   - double click on the "postgres" db in the GUI
+   - Use `psql postgres` terminal command
+3. Create a local database with the command (semi-colons are required for all SQL commands): `CREATE DATABASE cmsdemo;`
+4. Switch into the new database with `\c cmsdemo`

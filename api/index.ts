@@ -2,11 +2,13 @@
   Created with initial setup instructions (especially concerning connection of frontend and backend):
   https://blog.codeminer42.com/making-a-full-stack-app-with-vue-vite-and-express-that-supports-hot-reload/
 */
-
 import express from 'express'
 import path from 'path'
 import uiRouter from './uiRouter.ts'
-import assetsRouter from './assetsRouter.js'
+import assetsRouter from './assetsRouter.ts'
+import endpoint from './utils/endpoint.ts'
+
+import getUsers from './handlers/getUsers.ts'
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -14,6 +16,8 @@ const port = process.env.PORT || 3000
 app.get('/api/v1/hello', (_req, res) => {
   res.json({ message: 'Hello API!' })
 })
+
+app.get('/api/users', endpoint(getUsers))
 
 /*
   order matters - this section must be after all API calls
